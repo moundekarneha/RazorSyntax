@@ -1,0 +1,103 @@
+﻿
+
+<h2>Razor Syntax - Index</h2>
+<h2>Single line Block</h2>
+
+<!-- Single line Block -->
+@{ var name = "Neha";}
+
+<p>
+    Hello ! @name
+</p>
+<h2>Multi line Block - Simple using table</h2>
+<!-- Multi line Block -->
+
+@{
+    var id = 1;
+    var pname = "TV";
+    var price = 23.0;
+}
+
+<table border="1" width="400px">
+    <th>Product Id</th>
+    <th>Name </th>
+    <th>Price </th>
+    <tr>
+        <td>@id</td>
+        <td>@pname</td>
+        <td>@price</td>
+    </tr>
+</table>
+
+<h2>Multi line Block - with collection and ol</h2>
+<!-- Multi line Block - with collection-->
+
+@{
+    string[] str = new string[]
+    {
+        "Tv","mobile","smart watch","smart pen","book store"
+                            };
+}
+<h2>Product list</h2>
+
+<ol>
+    @foreach (var item in str)
+    {
+
+        <li>@item</li>
+
+    }
+
+</ol>
+<h2>Multi line Block - declared variable - with dl and if</h2>
+<!-- Declare Variable -->
+@{
+    var ids = 1;
+    var names = "Smart TV";
+    var prices = 500.0;
+    var mdfyr = DateTime.Now.Year;
+    var isStock = true;
+
+}
+
+<dl>
+    <dt>Id</dt>
+    <dl>@ids</dl>
+    <dt>Name</dt>
+    <dl>@names</dl>
+    <dt>Price</dt>
+    <dl>@prices</dl>
+    <dt>Is in Stock</dt>
+    @if (isStock == true)
+    {
+        <dl>Available</dl>
+    }
+    else
+    {
+        <dl>Not in stock</dl>
+    }
+
+</dl>
+
+<!-- String literals -
+    disadv- some special char are not printable which are in string literal ex / , " etc  
+    -->
+<h2>String literals</h2>
+
+@{ 
+    var msg = "I am using string literals";
+    var path = "D:\\Images\\Cares";
+    var msgimp = "\" Important MSG \"";
+    var mdgmark = "Hey </br> bye";
+    var strverbatim = @"D:\Images\Cares";
+    var msgimpVerbatim = @"Important ""MSG """;
+
+}
+<p>@msg</p>
+<p>@path</p>
+<p>@msgimp</p>
+<p>@mdgmark</p>
+<p>@strverbatim</p>
+<p>@msgimpVerbatim</p>
+
+
